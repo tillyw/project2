@@ -28,3 +28,4 @@ Node.js, MySQL, Sequelize, Passport, Handlebars, Express, Materialize, Bootstrap
 
 
 ![Screen Shot](public/assets/images/test.png)
+
