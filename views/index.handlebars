@@ -2,7 +2,23 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
+         <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        {{!-- <h2>Welcome <span class="member-name"></span></h2> --}}
+      </div>
+    </div>
+  </div>
+        <h1>{{msg}} <span class="member-name"></span></h1>
         <h2>This is our Home Page!</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
@@ -31,3 +47,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/members.js"></script>
