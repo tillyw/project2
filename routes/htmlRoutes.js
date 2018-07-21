@@ -3,10 +3,10 @@ var db = require("../models");
 module.exports = function(app) {
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/event/:id", function(req, res) {
+    db.Event.findOne({ where: { id: req.params.id } }).then(function(dbEvent) {
+      res.render("event", {
+        event: dbEvent
       });
     });
   });
