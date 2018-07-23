@@ -12,19 +12,19 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
+      url: "api/events",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/events",
       type: "GET"
     });
   },
   deleteExample: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/events/" + id,
       type: "DELETE"
     });
   }
@@ -64,22 +64,25 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  $.get("/api/user_data").then(function(data) {
+    alert(data.username);
+    var example = {
+      name: $exampleText.val().trim(),
+      description: $exampleDescription.val().trim(),
+      user: data.username
+    };
+    if (!(example.name && example.description)) {
+      alert("You must enter an example text and description!");
+      return;
+    }
+  
+    API.saveExample(example).then(function() {
+      refreshExamples();
+    });
+  
+    $exampleText.val("");
+    $exampleDescription.val("");
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
