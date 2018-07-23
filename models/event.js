@@ -3,7 +3,16 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     dateAndTime: DataTypes.DATE,
     location: DataTypes.STRING,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
   });
+
+  Event.associate = function(models) {
+    Event.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Event;
 };
