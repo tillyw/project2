@@ -21,4 +21,23 @@
       </div>
     </div>
   </div>
+  <form class="clearfix mb-4" action="POST">
+      <div class="form-group">
+      <label for="comment">Comments</label>
+      <textarea class="form-control" id="comment" aria-describedby="example-description" placeholder="Whats on your mind?"></textarea>
+      </div>
+      <button id="submitComment" class="btn btn-primary float-right">Submit</button>
+  </form>
+    <ul id="comment-list" class="list-group">
+      {{#each comments}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="event/{{this.id}}">{{this.name}}</a>
+          </li>
+       {{/each}}
+    </ul>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/members.js"></script>
+
