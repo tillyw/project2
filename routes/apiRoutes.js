@@ -15,10 +15,14 @@ module.exports = function(app) {
     });
   });
 
+  
+/// create update event route
+
+
   // Delete an event by id
-  app.delete("/api/events/:id", function(req, res) {
-    db.Event.destroy({ where: { id: req.params.id } }).then(function(dbEvent) {
-      res.json(dbEvent);
-    });
-  });
+  // app.delete("/api/events/:id", function(req, res) {
+  //   db.Event.destroy({ where: { id: req.params.id } }).then(function(dbEvent) {
+  //     res.json(dbEvent);
+  //   });
+  // });
 };
