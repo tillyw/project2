@@ -10,28 +10,52 @@ body {
   line-height: 1.5em;
   text-align: center;
   font-family: 'Noto Sans', sans-serif, 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 1.2em;
   text-align: center;
-  color: #be2b2f;
-  background-color: #f8dfa9;
-  background-image: url(/images/event.jpg);
+  color: #f8bdbd;
+  background-color: #5f3435;
+  background-image: url(/images/loginB.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+a{
+  color: #f8bdbd;
+}
+#namelink{
+  color:#8e0e4e;
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+  font-size: 1.5em;
+}
+
 .custom{
   opacity: 0.8;
 }
 .custom1{
   opacity: 0.7;
 }
-
-h1,h2{
-  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
-  color: #be2b2f;
+#login{
+  margin: auto;
 }
-
-
+#password-input{
+  color: #f8bdbd;
+}
+a:hover {
+  color: white;
+}
+.form-group{
+  color: #f8bdbd;
+}
+placeholder{
+  color:red;
+}
+h1{
+  text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+  color: #f8bdbd;
+}
+h2{
+  color: #f8bdbd;
+}
 @media (max-width: 375px) {
  
   body{
@@ -41,8 +65,13 @@ h1,h2{
       font-size: 1.5em;
   }
   #mobile{
-      color: white;
-      background-color: #be2b3090;
+      color: #f8bdbd;
+      background-color: #5f3435;
+  }
+  #namelink{
+    color:#8e0e4e;
+    text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+    font-size: 1em;
   }
   
 }
