@@ -9,20 +9,22 @@ module.exports = function(app) {
   });
 
   // Create a new events
-  app.post("/api/events", function(req, res) {
-    db.Event.create(req.body).then(function(dbEvent) {
-      res.json(dbEvent);
-    });
-  });
-
-  
-/// create update event route
-
-
-  // Delete an event by id
-  // app.delete("/api/events/:id", function(req, res) {
-  //   db.Event.destroy({ where: { id: req.params.id } }).then(function(dbEvent) {
+  // app.post("/api/event", function(req, res) {
+  //   db.Event.create(req.body).then(function(dbEvent) {
   //     res.json(dbEvent);
   //   });
   // });
+
+  app.post("/api/newevent", function(req, res) {
+    console.log(req.body);
+    db.Event.create({
+      eventInput: req.body.eventInput,
+      dateInput: req.body.dateInput,
+      locationInput: req.body.locationInput,
+      descriptionInput: req.body.descriptionInput
+    }).then(function(dbEvent) {
+      res.json(dbEvent);
+        });
+  });
+
 };
