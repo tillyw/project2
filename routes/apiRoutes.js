@@ -7,6 +7,8 @@ module.exports = function(app) {
       res.json(dbEvent);
     });
   });
+ 
+ 
   //get one event
   app.get("/api/events/:id", function(req, res) {
     db.Event.findOne({ where: { id: req.params.id } }).then(function(dbEvent) {
@@ -17,18 +19,25 @@ module.exports = function(app) {
 
 
   // Create a new events
-  app.post("/api/events", function(req, res) {
-    db.Event.create(req.body).then(function(dbEvent) {
+  // app.post("/api/event", function(req, res) {
+  //   db.Event.create(req.body).then(function(dbEvent) {
+  //     res.json(dbEvent);
+  //   });
+  // });
+
+  app.post("/api/newevent", function(req, res) {
+    console.log(req.body);
+    db.Event.create({
+      eventInput: req.body.eventInput,
+      dateInput: req.body.dateInput,
+      locationInput: req.body.locationInput,
+      descriptionInput: req.body.descriptionInput
+    }).then(function(dbEvent) {
       res.json(dbEvent);
-    });
+        });
   });
 
-  // Delete an event by id
-  app.delete("/api/events/:id", function(req, res) {
-    db.Event.destroy({ where: { id: req.params.id } }).then(function(dbEvent) {
-      res.json(dbEvent);
-    });
-  });
+
   //get all the comments inside events
   app.get("/api/comments", function(req, res) {
     db.Comment.findAll({}).then(function(dbComment) {
@@ -41,4 +50,5 @@ module.exports = function(app) {
       res.json(dbComment);
     })
   })
+
 };

@@ -25,6 +25,12 @@ var API = {
                 url:"../api/user_data",
                 type: "GET"
             });
+        },
+    getEventId: function(id) {
+            return $.ajax({
+                url:"../api/events",
+                type: "GET"
+            });
         }
     };
 
@@ -37,9 +43,9 @@ var commentSubmit = function(event) {
     var commentInput = $("#comment").val().trim();
 
     $.get("../api/user_data").then(function(data) {
-    $.get("../api/events").then(function(events) {
+    API.getEventId().then(function(res, req) {
         console.log(data);
-        console.log(events);
+        console.log(req.body.id);
 
        
         var input = {
