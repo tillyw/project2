@@ -10,9 +10,14 @@ module.exports = function(app) {
       });
     });
   });
-
+// load newEvent page
+app.get("/newevent", function(req, res) {
+  res.render("newevent");
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
+  
+  
 };
