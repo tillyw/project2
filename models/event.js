@@ -4,15 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     dateAndTime: DataTypes.DATE,
     location: DataTypes.STRING,
     description: DataTypes.TEXT,
+    user: DataTypes.STRING
   });
-
-  Event.associate = function(models) {
-    Event.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-
   return Event;
 };
