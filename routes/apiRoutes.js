@@ -31,7 +31,8 @@ module.exports = function(app) {
       name: req.body.eventInput,
       dateAndTime: req.body.dateInput,
       location: req.body.locationInput,
-      description: req.body.descriptionInput
+      description: req.body.descriptionInput,
+      user: req.body.user
     }).then(function(dbEvent) {
       res.json(dbEvent);
         });
