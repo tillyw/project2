@@ -1,27 +1,70 @@
+<br>
+<br>
 <div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Event</h5>
-          <p>
-            <strong>Name</strong>: {{event.name}}
-          </p>
-          <p>
-            <strong>Date</strong>: {{event.date}}
-          </p>
-          <p>
-            <strong>Location</strong>: {{event.location}}
-          </p>
-          <p>
-            <strong>Host:</strong> {{event.user}}
-          </p>
-          <p>
-            <strong>Description:</strong> {{event.description}}
-          </p>
-            <a href="/">← Back To Home</a>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="card mt-4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="/images/movie.jpg">
+                    </div>
+                    <div class="card-content">
+                        <p id="namelink">{{event.name}}</p>
+                    </div>
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#test4">Date</a></li>
+                            <li class="tab"><a href="#test5">Location</a></li>
+                            <li class="tab"><a href="#test6">Description</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="test4"> {{event.dateAndTime}}</div>
+                        <div id="test5"> {{event.location}}</div>
+                        <div id="test6"> {{event.description}}</div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
     </div>
   </div>
+  <form class="clearfix mb-4" action="POST">
+      <div class="form-group">
+      <label for="comment">Comments</label>
+      <textarea class="form-control" id="comment" aria-describedby="example-description" placeholder="Whats on your mind?"></textarea>
+      </div>
+      <button id="submitComment" class="btn btn-primary float-right">Submit</button>
+  </form>
+    <ul id="comment-list" class="list-group">
+      {{#each comments}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="event/{{this.id}}">{{this.name}}</a>
+          </li>
+       {{/each}}
+    </ul>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/events.js"></script>
+<script src="/js/members.js"></script>
+
+</div>
+<br>
+<br>
+<div>
+    <a href="/members">← Back To the List of the Events</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<!-- to make card collapsible -->
+<script>
+    $(document).ready(function() {
+        $('.tabs').tabs();
+        $('.collapsible').collapsible()
+    });
+</script>

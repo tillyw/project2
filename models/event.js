@@ -4,7 +4,15 @@ module.exports = function(sequelize, DataTypes) {
     dateAndTime: DataTypes.DATE,
     location: DataTypes.STRING,
     description: DataTypes.TEXT,
-    user: DataTypes.STRING
+    // user: DataTypes.STRING
   });
+
+  Event.associate = function(models) {
+    Event.hasMany(models.Comment, {
+      onDelete: "cascade"
+    });
+  };
   return Event;
+
+
 };
