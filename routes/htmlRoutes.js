@@ -4,9 +4,10 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/event/:id", function(req, res) {
-    db.Event.findOne({ where: { id: req.params.id } }).then(function(dbEvent) {
+    db.Event.findOne({ where: { id: req.params.id } ,include:[db.Comment] }).then(function(dbEvent) {
       res.render("event", {
-        event: dbEvent
+        event: dbEvent,
+        comment: dbEvent.Comments
       });
     });
   });
