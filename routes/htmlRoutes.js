@@ -10,6 +10,16 @@ module.exports = function(app) {
       });
     });
   });
+
+
+  // app.get("/event/commment/:id", function(req, res) {
+  //   db.Comment.findOne({ where: { id: req.params.id } }).then(function(dbComment) {
+  //     res.render("event", {
+  //       event: dbComment
+  //     });
+  //   });
+  // });
+
 // load newEvent page
 app.get("/newevent", function(req, res) {
   res.render("newevent");

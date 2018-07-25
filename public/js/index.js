@@ -35,8 +35,13 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
+<<<<<<< HEAD
         .text(example.text)
         .attr("href", "/example/" + example.id);
+=======
+        .text(example.name)
+        .attr("href", "events/" + example.id);
+>>>>>>> c68a575ddd822ae6660c986b7fc604baa982dd79
 
       var $li = $("<li>")
         .attr({
@@ -57,6 +62,10 @@ var refreshExamples = function() {
     $exampleList.empty();
     $exampleList.append($examples);
   });
+<<<<<<< HEAD
+=======
+
+>>>>>>> c68a575ddd822ae6660c986b7fc604baa982dd79
 };
 
 // handleFormSubmit is called whenever we submit a new example
@@ -64,6 +73,7 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
+<<<<<<< HEAD
   $.get("/api/user_data").then(function(data) {
     alert(data.username);
     var example = {
@@ -83,6 +93,25 @@ var handleFormSubmit = function(event) {
     $exampleText.val("");
     $exampleDescription.val("");
   });
+=======
+  var example = {
+    name: $exampleText.val().trim(),
+    description: $exampleDescription.val().trim()
+  };
+  console.log(example);
+
+  if (!(example.name && example.description)) {
+    alert("You must enter an example text and description!");
+    return;
+  }
+
+  API.saveExample(example).then(function() {
+    refreshExamples();
+  });
+
+  $exampleText.val("");
+  $exampleDescription.val("");
+>>>>>>> c68a575ddd822ae6660c986b7fc604baa982dd79
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked

@@ -6,5 +6,13 @@ module.exports = function(sequelize, DataTypes) {
     description: DataTypes.TEXT,
     // user: DataTypes.STRING
   });
+
+  Event.associate = function(models) {
+    Event.hasMany(models.Comment, {
+      onDelete: "cascade"
+    });
+  };
   return Event;
+
+
 };
