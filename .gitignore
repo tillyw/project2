@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-node_modules
-config/config.json
-=======
 .DS_Store
 node_modules/
 config/config.json
 package-lock.json
->>>>>>> master
