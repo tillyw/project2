@@ -18,10 +18,10 @@ module.exports = function(app) {
   app.post("/api/newevent", function(req, res) {
     console.log(req.body);
     db.Event.create({
-      eventInput: req.body.eventInput,
-      dateInput: req.body.dateInput,
-      locationInput: req.body.locationInput,
-      descriptionInput: req.body.descriptionInput
+      name: req.body.eventInput,
+      dateAndTime: req.body.dateInput,
+      location: req.body.locationInput,
+      description: req.body.descriptionInput
     }).then(function(dbEvent) {
       res.json(dbEvent);
         });

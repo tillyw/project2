@@ -36,7 +36,7 @@ $(document).ready(function() {
                         locationInput: locationInput,
                         descriptionInput: descriptionInput
                     }).then(function(data) {
-                        window.location.replace(data); 
+                        window.location.href="/members"; 
                     });
      
 };    
