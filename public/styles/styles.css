@@ -56,6 +56,12 @@ h1{
 h2{
   color: #f8bdbd;
 }
+
+.chat {
+  text-align: left;
+}
+
+
 @media (max-width: 375px) {
  
   body{
