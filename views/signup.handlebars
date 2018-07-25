@@ -1,41 +1,57 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
+
+    <br>
+    <br>
   <div class="container">
+  
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+
+        <br>
+        <h1>Movie Events App</h1>
+        <br>
         <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-              <div class="form-group">
-                  <label for="exampleInputFirstname1">First Name</label>
-                  <input type="firstname" class="form-control" id="firstname-input" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputLastname1">Last Name</label>
-                    <input type="lastname" class="form-control" id="lastname-input" placeholder="Last Name">
-                  </div>
-            <label for="exampleInputusername1">Username</label>
-            <input type="username" class="form-control" id="username-input" placeholder="username">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <br>
+        <p>Please fill in this form to create an account.</p>
+        <br>
+        <div class="row">
+    <form class="col s12 signup form-group">
+      <div class="row">
+        <div class="input-field col s6">
+          <input  id="firstname-input" type="text" >
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="lastname-input" type="text" >
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username-input" type="text" >
+          <label for="last_name">Username</label>
+        </div>
+       </div>
+      <div class="row"> 
+        <div class="input-field col s12">
+          <input id="password-input" type="password" >
+          <label for="password">Password</label>
+        </div>
+      </div>
+       <button type="submit" class="pink darken-4 btn pulse waves-effect waves-light">Sign Up<i class="material-icons right">send</i></button>
+     
+    </form>
+  </div>
+       <br>
+        <p >If you have an account<a class=" pink darken-4 btn pulse waves-effect waves-light float-right update pulse"href="/login">Login Here<i class="material-icons right">send</i></a></p>
+        
+        
       </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
+
+
+ 

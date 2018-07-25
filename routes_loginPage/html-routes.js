@@ -31,10 +31,10 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     //res.sendFile(path.join(__dirname, "../public/members.html"));
 
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Event.findAll({}).then(function(dbEvents) {
       res.render("index", {
         msg: "Welcome ",
-        examples: dbExamples
+        events: dbEvents
       });
     });
   });
