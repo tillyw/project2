@@ -43,9 +43,9 @@ var commentSubmit = function(event) {
     var commentInput = $("#comment").val().trim();
 
     $.get("../api/user_data").then(function(data) {
-    API.getEventId().then(function(res, req) {
-        console.log(data);
-        console.log(req.body.id);
+    $.get("../api/events").then(function(events){
+        console.log(data); 
+        console.log(events);
 
        
         var input = {
@@ -62,11 +62,11 @@ var commentSubmit = function(event) {
             refreshComments();
             
         });
-        
     });
     });
+    };
         
-};
+
 //to refresh comments upon submitting a new one
 var refreshComments = function() {
     API.getComments().then(function(data) {
