@@ -23,7 +23,11 @@ module.exports = function(app) {
 
 // load newEvent page
 app.get("/newevent", function(req, res) {
-  res.render("newevent");
+    db.User.findAll({}).then(function(dbUser) {
+      res.render("newevent", {
+        users: dbUser
+      });
+    });
   });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

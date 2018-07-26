@@ -37,6 +37,16 @@
                             <label for="descripton">Description</label>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col s12">
+                            <label for="invited">Invite your friends!</label>
+                            <select multiple class="form-control" id="invited-input">
+                                {{#each users}}
+                                <option>{{this.firstname}} {{this.lastname}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
                     <button type="submit" id="newevent" class="newevent pink darken-4 btn pulse waves-effect waves-light">Submit<i class="material-icons right">send</i></button>
 
                 </form>

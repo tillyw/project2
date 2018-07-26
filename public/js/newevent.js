@@ -6,6 +6,19 @@ $(document).ready(function() {
     var locationInput = $("input#location-input");
     var descriptionInput = $("input#description-input");
 
+    // function getUsers() {
+    //     $.get("/api/users", function(data) {
+    //         for (var i = 0; i < data.length; i++) {
+    //             console.log(data[i].firstname + " " + data[i].lastname);
+    //             $("#invitedinput").html("<option>" + data[i].firstname + " " + data[i].lastname + "</option>");           
+    //         };
+    //     });
+    // };
+
+    // getUsers();
+
+    console.log(dbUser);
+
     // When the signup button is clicked, we validate the username and password are not blank
     $("#newevent").click(function(event) {
         event.preventDefault();
