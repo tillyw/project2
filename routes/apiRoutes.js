@@ -29,6 +29,7 @@ module.exports = function(app) {
     console.log(req.body);
     db.Event.create({
       name: req.body.eventInput,
+      movie: req.body.movieInput,
       dateAndTime: req.body.dateInput,
       location: req.body.locationInput,
       description: req.body.descriptionInput
