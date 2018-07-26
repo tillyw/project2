@@ -17,8 +17,6 @@ $(document).ready(function() {
 
     // getUsers();
 
-    console.log(dbUser);
-
     // When the signup button is clicked, we validate the username and password are not blank
     $("#newevent").click(function(event) {
         event.preventDefault();

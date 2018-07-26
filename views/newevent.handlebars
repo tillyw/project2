@@ -42,7 +42,7 @@
                             <label for="invited">Invite your friends!</label>
                             <select multiple class="form-control" id="invited-input">
                                 {{#each users}}
-                                <option>{{this.firstname}} {{this.lastname}}</option>
+                                <option value="{{this.username}}">{{this.firstname}} {{this.lastname}}</option>
                                 {{/each}}
                             </select>
                         </div>
