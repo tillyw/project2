@@ -12,7 +12,13 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-  return Event;
 
+  Event.associate = function(models) {
+    Event.hasMany(models.Invitee, {
+      onDelete: "cascade"
+    });
+  };
+
+  return Event;
 
 };

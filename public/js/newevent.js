@@ -5,6 +5,7 @@ $(document).ready(function() {
     var dateInput = $("input#eventdate-input");
     var locationInput = $("input#location-input");
     var descriptionInput = $("input#description-input");
+    var invitedInput = $("#invited-input");
 
     // function getUsers() {
     //     $.get("/api/users", function(data) {
@@ -20,7 +21,7 @@ $(document).ready(function() {
     // When the signup button is clicked, we validate the username and password are not blank
     $("#newevent").click(function(event) {
         event.preventDefault();
-        
+
         $.get("/api/user_data").then(function(data) { 
 
             var eventData = {
@@ -29,6 +30,10 @@ $(document).ready(function() {
                 locationInput: locationInput.val().trim(),
                 descriptionInput: descriptionInput.val().trim(),
                 user: data.username
+            };
+
+            var inviteeData = {
+                invitedInput: invitedInput.val()
             };
 
             if (!eventData.eventInput || !eventData.dateInput || !eventData.locationInput || !eventData.descriptionInput) {
@@ -54,6 +59,7 @@ $(document).ready(function() {
                 }).then(function(data) {
                     // window.location.href="/members"; 
                 });
+                
         };
     }) 
 });
