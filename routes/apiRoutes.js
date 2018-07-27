@@ -16,6 +16,19 @@ module.exports = function(app) {
     });
   });
 
+  //Get all users
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+        res.json(dbUser);
+    });
+  });
+
+  //Get one user
+  app.get("/api/users/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
+        res.json(dbUser);
+    });
+  });
 
 
   // Create a new events
@@ -52,5 +65,19 @@ module.exports = function(app) {
       res.json(dbComment);
     })
   })
+
+  //get invitees for event
+  app.get("/api/newinvitee", function (req, res) {
+    db.Invitee.findAll({}).then(function(dbInvitee) {
+      res.json(dbInvitee);
+    });
+  });
+
+  //post invitees for event
+  app.post("/api/newinvitee", function (req, res) {
+    db.Invitee.create(req.body).then(function(dbInvitee) {
+      res.json(dbInvitee);
+    });
+  });
 
 };
