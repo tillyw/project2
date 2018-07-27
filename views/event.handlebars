@@ -18,6 +18,7 @@
                             <li class="tab"><a class="active" href="#test4">Date and Time</a></li>
                             <li class="tab"><a href="#test5">Location</a></li>
                             <li class="tab"><a href="#test6">Description</a></li>
+                            <li class="tab"><a href="#test7">Host</a></li>
                         </ul>
                     </div>
                     <div class="card-content grey lighten-4">
@@ -25,6 +26,7 @@
                         <div id="test4"> {{event.dateAndTime}}</div>
                         <div id="test5"> {{event.location}}</div>
                         <div id="test6"> {{event.description}}</div>
+                        <div id="test7"> {{event.user}}</div>
                     </div>
                 </div>
 
@@ -32,6 +34,7 @@
         </div>
     </div>
   </div>
+  <div class="container">
   <form class="clearfix mb-4" action="POST">
       <div class="form-group">
       <label for="comment">Comments</label>
@@ -40,9 +43,11 @@
       <button id="submitComment" class="btn btn-primary float-right">Submit</button>
   </form>
     <ul id="comment-list" class="list-group">
-      {{#each comments}}
+      {{#each comment}}
+        {{log this.body}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="event/{{this.id}}">{{this.name}}</a>
+             test {{this.body}}
+            {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
           </li>
        {{/each}}
     </ul>

@@ -32,7 +32,8 @@ module.exports = function(app) {
       movie: req.body.movieInput,
       dateAndTime: req.body.dateInput,
       location: req.body.locationInput,
-      description: req.body.descriptionInput
+      description: req.body.descriptionInput,
+      user: req.body.user
     }).then(function(dbEvent) {
       res.json(dbEvent);
         });

@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     movie: DataTypes.STRING,
     dateAndTime: DataTypes.DATE,
     location: DataTypes.STRING,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
+    user: DataTypes.STRING
   });
 
   Event.associate = function(models) {
