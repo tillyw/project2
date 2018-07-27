@@ -23,6 +23,13 @@ module.exports = function(app) {
     });
   });
 
+  //Get one user
+  app.get("/api/users/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
+        res.json(dbUser);
+    });
+  });
+
 
   // Create a new events
   // app.post("/api/event", function(req, res) {
@@ -57,5 +64,11 @@ module.exports = function(app) {
       res.json(dbComment);
     })
   })
+
+  app.post("/api/newinvitee", function (req, res) {
+    db.Invitee.create(req.body).then(function(dbInvitee) {
+      res.json(dbInvitee);
+    });
+  });
 
 };
