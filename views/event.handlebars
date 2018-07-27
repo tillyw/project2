@@ -17,7 +17,6 @@
                             <li class="tab"><a href="#test5">Location</a></li>
                             <li class="tab"><a href="#test6">Description</a></li>
                             <li class="tab"><a href="#test7">Host</a></li>
-                            <li class="tab"><a href="#test7">Invitees</a></li>
                         </ul>
                     </div>
                     <div class="card-content grey lighten-4">
@@ -29,35 +28,35 @@
                 </div>
 
             </div>
+            <div>
+                <label for="comment">Invitees</label>
+                <ul id="invitee-list" class="list-group-item">
+                {{#each invitee}}
+                    <li>
+                        {{this.firstname}} {{this.lastname}}
+                    </li>
+                {{/each}}
+                </ul>
+                <form class="clearfix mb-4" action="POST">
+                    <div class="form-group">
+                    <label for="comment">Comments</label>
+                    <textarea class="form-control" id="comment" aria-describedby="example-description" placeholder="Whats on your mind?"></textarea>
+                    </div>
+                    <button id="submitComment" class="btn btn-primary float-right">Submit</button>
+                </form>
+                <ul id="comment-list" class="list-group">
+                    {{#each comment}}
+                        {{log this.body}}
+                        <li data-id="{{this.id}}" class="list-group-item">
+                            {{this.body}}
+                            {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
     </div>
   </div>
-  <div class="container">
-    <label for="comment">Invitees</label>
-    <ul id="invitee-list" class="list-group-item">
-      {{#each invitee}}
-        <li>
-            {{this.firstname}} {{this.lastname}}
-        </li>
-       {{/each}}
-    </ul>
-  <form class="clearfix mb-4" action="POST">
-      <div class="form-group">
-      <label for="comment">Comments</label>
-      <textarea class="form-control" id="comment" aria-describedby="example-description" placeholder="Whats on your mind?"></textarea>
-      </div>
-      <button id="submitComment" class="btn btn-primary float-right">Submit</button>
-  </form>
-    <ul id="comment-list" class="list-group">
-      {{#each comment}}
-        {{log this.body}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            {{this.body}}
-            {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
-          </li>
-       {{/each}}
-    </ul>
-</div>
 <input type="hidden" id="event-id" value={{event.id}}/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/events.js"></script>
