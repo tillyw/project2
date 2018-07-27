@@ -17,6 +17,7 @@
                             <li class="tab"><a href="#test5">Location</a></li>
                             <li class="tab"><a href="#test6">Description</a></li>
                             <li class="tab"><a href="#test7">Host</a></li>
+                            <li class="tab"><a href="#test7">Invitees</a></li>
                         </ul>
                     </div>
                     <div class="card-content grey lighten-4">
@@ -32,6 +33,14 @@
     </div>
   </div>
   <div class="container">
+    <label for="comment">Invitees</label>
+    <ul id="invitee-list" class="list-group-item">
+      {{#each invitee}}
+        <li>
+            {{this.firstname}} {{this.lastname}}
+        </li>
+       {{/each}}
+    </ul>
   <form class="clearfix mb-4" action="POST">
       <div class="form-group">
       <label for="comment">Comments</label>

@@ -10,10 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   Event.associate = function(models) {
     Event.hasMany(models.Comment, {
       onDelete: "cascade"
-    });
-  };
-
-  Event.associate = function(models) {
+    }),
     Event.hasMany(models.Invitee, {
       onDelete: "cascade"
     });

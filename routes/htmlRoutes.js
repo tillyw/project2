@@ -4,10 +4,11 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/event/:id", function(req, res) {
-    db.Event.findOne({ where: { id: req.params.id } ,include:[db.Comment] }).then(function(dbEvent) {
+    db.Event.findOne({ where: { id: req.params.id }, include: [db.Comment, db.Invitee] }).then(function(dbEvent) {
       res.render("event", {
         event: dbEvent,
-        comment: dbEvent.Comments
+        comment: dbEvent.Comments,
+        invitee: dbEvent.Invitees
       });
     });
   });
