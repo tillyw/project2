@@ -41,18 +41,16 @@ var API = {
 var commentSubmit = function(event) {
     event.preventDefault();
     var commentInput = $("#comment").val().trim();
-
+    var id = $("#event-id").val();
     $.get("../api/user_data").then(function(data) {
-    $.get("../api/events").then(function(events){
         console.log(data); 
-        console.log(events);
 
        
         var input = {
             body: commentInput,
             UserId: data.id,
-            username: data.username
-            // eventid: events.params.id
+            username: data.username,
+            EventId: id
         };
         console.log(commentInput);
         console.log(input);
@@ -63,32 +61,33 @@ var commentSubmit = function(event) {
             
         });
     });
-    });
     };
         
 
 //to refresh comments upon submitting a new one
 var refreshComments = function() {
     API.getComments().then(function(data) {
-        var incComments = data.map(function(comment) {
-            var a = $("<div>")
-                .text(comment.username + ":      " + comment.body)
-                .attr("href", "events/" + comment.id)
+        var id = $("#event-id").val();
+            var incComments = data.map(function(comment) {
+                var a = $("<div>")
+                    .text(comment.username + ":      " + comment.body)
+                    .attr("href", "events/" + comment.id)
 
-                var li = $("<li>")
-                    .attr({
-                        class: "list-group-item chat",
-                        "data-id": comment.id
-                    })
-                    .append(a);
+                    var li = $("<li>")
+                        .attr({
+                            class: "list-group-item chat",
+                            "data-id": comment.id
+                        })
+                        .append(a);
 
-                    return li;
-        });
-        console.log(incComments);
-        commentList.empty();
-        commentList.append(incComments);
-
-    })
+                        return li;
+                });
+            console.log(incComments);
+            if (comment.EventId === id) { 
+                commentList.empty();
+                commentList.append(incComments);
+            };
+    });
 };
 
 submitBtn.on("click", commentSubmit);
