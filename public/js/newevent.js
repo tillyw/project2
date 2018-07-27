@@ -42,35 +42,38 @@ $(document).ready(function() {
                     locationInput: locationInput,
                     descriptionInput: descriptionInput,
                     user: user
-                }).then(function(data) {
-                    // window.location.href="/members"; 
+                }).then(function(event) {
+                    var invitedArray = invitedInput.val();
+
+                    for (var i = 0; i < invitedArray.length; i++) {
+                        var invitedID = invitedArray[i];
+
+                        $.get("api/users/" + invitedID).then(function(data) {
+            
+                            var inviteeData = {
+                                username: data.username,
+                                firstname: data.firstname,
+                                lastname: data.lastname,
+                                EventId: event.id
+                            };
+            
+                            newInvitee(inviteeData);
+                    
+                            function newInvitee(data) {
+                                return $.ajax({
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    type: "POST",
+                                    url: "../api/newinvitee",
+                                    data: JSON.stringify(data)
+                                });
+                            };
+                        });
+                    };
+                    window.location.href="/members"; 
                 });    
             };
         });
-
-        var invitedArray = invitedInput.val();
-
-        for (var i = 0; i < invitedArray.length; i++) {
-            var invitedID = invitedArray[i];
-            console.log(invitedID);
-            $.get("api/users/" + invitedID).then(function(data) {
-                console.log(data);
-            });
-        };
-
-        // var inviteeData = {
-        //     invitedInput: invitedInput.val()
-        // };
-
-        // newInvitee(inviteeData.invitedInput);
-
-        // function newInvitee (invitedInput) {
-        //     $.post("/api/newinvitee", {
-        //         invitedInput: invitedInput
-        //     }).then(function(data) {
-        //         JSON.stringify(data);
-        //         console.log(data);
-        //     });
-        // };
     });
 });
