@@ -12,9 +12,12 @@ module.exports = function(sequelize, DataTypes) {
   Event.associate = function(models) {
     Event.hasMany(models.Comment, {
       onDelete: "cascade"
+    }),
+    Event.hasMany(models.Invitee, {
+      onDelete: "cascade"
     });
   };
-  return Event;
 
+  return Event;
 
 };

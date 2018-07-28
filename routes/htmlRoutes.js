@@ -21,6 +21,13 @@ module.exports = function (app) {
         }
       );
       
+  app.get("/event/:id", function(req, res) {
+    db.Event.findOne({ where: { id: req.params.id }, include: [db.Comment, db.Invitee] }).then(function(dbEvent) {
+      res.render("event", {
+        event: dbEvent,
+        comment: dbEvent.Comments,
+        invitee: dbEvent.Invitees
+      });
     });
   });
 
@@ -33,9 +40,19 @@ module.exports = function (app) {
   //   });
   // });
 
+<<<<<<< HEAD
   // load newEvent page
   app.get("/newevent", function (req, res) {
     res.render("newevent");
+=======
+// load newEvent page
+app.get("/newevent", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+      res.render("newevent", {
+        users: dbUser
+      });
+    });
+>>>>>>> 448163456f326ad4485d5ef8296670c01cdfe009
   });
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
