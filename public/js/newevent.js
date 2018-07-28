@@ -50,10 +50,10 @@ $(document).ready(function() {
                     fullname: fullname
                 }).then(function(event) {
                     var invitedArray = invitedInput.val();
-
+                    console.log(invitedArray);
                     for (var i = 0; i < invitedArray.length; i++) {
                         var invitedID = invitedArray[i];
-
+                        console.log(invitedID);
                         $.get("api/users/" + invitedID).then(function(data) {
             
                             var inviteeData = {
@@ -62,16 +62,17 @@ $(document).ready(function() {
                                 lastname: data.lastname,
                                 EventId: event.id
                             };
-            
+                            console.log(inviteeData);
                             newInvitee(inviteeData);
                     
                             function newInvitee(data) {
+                                console.log(JSON.stringify(data));
                                 return $.ajax({
                                     headers: {
                                         "Content-Type": "application/json"
                                     },
                                     type: "POST",
-                                    url: "../api/newinvitee",
+                                    url: "/api/newinvitee",
                                     data: JSON.stringify(data)
                                 });
                             };
