@@ -34,7 +34,10 @@
                 </div>
 
             </div>
-            <div>
+    </div> 
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
                 <label for="comment">Invitees</label>
                 <ul id="invitee-list" class="list-group-item">
                 {{#each invitee}}
@@ -50,19 +53,19 @@
                     </div>
                     <button id="submitComment" class="btn btn-primary float-right">Submit</button>
                 </form>
-                <ul id="comment-list" class="list-group">
-                    {{#each comment}}
+                <ul id="comment-list" class="list-group chat">
+                    {{#each comment mode="prepend"}}
                         {{log this.body}}
                         <li data-id="{{this.id}}" class="list-group-item">
-                            {{this.body}}
+                           <span class="commentColor">{{this.username}}:</span>   {{this.body}}
                             {{!-- <a href="event/{{this.id}}">{{this.name}}</a> --}}
                         </li>
                     {{/each}}
                 </ul>
             </div>
         </div>
-    </div>
-  </div>
+</div>
+  
 <input type="hidden" id="event-id" value={{event.id}}/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/events.js"></script>

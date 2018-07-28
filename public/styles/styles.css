@@ -27,6 +27,9 @@ a{
   text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
   font-size: 1.5em;
 }
+.commentColor{
+  color: blue;
+}
 
 .custom{
   opacity: 0.8;

@@ -49,7 +49,7 @@ var commentSubmit = function(event) {
         var input = {
             body: commentInput,
             UserId: data.id,
-            username: data.username,
+            username: data.firstname + " " + data.lastname,
             EventId: id
         };
         console.log(commentInput);
@@ -57,7 +57,7 @@ var commentSubmit = function(event) {
       
 
         API.insertComment(input).then(function() {
-            refreshComments();
+            window.location.reload();
             
         });
     });
@@ -65,32 +65,30 @@ var commentSubmit = function(event) {
         
 
 //to refresh comments upon submitting a new one
-var refreshComments = function() {
-    API.getComments().then(function(data) {
-        var id = $("#event-id").val();
-            var incComments = data.map(function(comment) {
-                var a = $("<div>")
-                    .text(comment.username + ":      " + comment.body)
-                    .attr("href", "events/" + comment.id)
+// var refreshComments = function() {
+//     API.getComments().then(function(data) {
+//         var id = $("#event-id").val();
+//             var incComments = data.map(function(comment) {
+//                 var a = $("<div>")
+//                     .text(comment.username + ":      " + comment.body)
+//                     .attr("href", "events/" + comment.id)
 
-                    var li = $("<li>")
-                        .attr({
-                            class: "list-group-item chat",
-                            "data-id": comment.id
-                        })
-                        .append(a);
+//                     var li = $("<li>")
+//                         .attr({
+//                             class: "list-group-item chat",
+//                             "data-id": comment.id
+//                         })
+//                         .append(a);
 
-                        return li;
-                });
-            console.log(incComments);
-            if (comment.EventId === id) { 
-                commentList.empty();
-                commentList.append(incComments);
-            };
-    });
-};
+//                         return li;
+//                 });
+//             console.log(incComments);
+//             if (comment.EventId === id) { 
+//                 commentList.empty();
+//                 commentList.append(incComments);
+//             };
+//     });
+// };
 
-submitBtn.on("click", commentSubmit);
+submitBtn.on("click", commentSubmit)
 //onload function to display comments when page
-
-    refreshComments();
