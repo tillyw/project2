@@ -46,7 +46,8 @@ module.exports = function(app) {
       dateAndTime: req.body.dateInput,
       location: req.body.locationInput,
       description: req.body.descriptionInput,
-      user: req.body.user
+      user: req.body.user,
+      fullname: req.body.fullname
     }).then(function(dbEvent) {
       res.json(dbEvent);
         });
