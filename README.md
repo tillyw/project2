@@ -25,5 +25,4 @@ MuviNite uses the Sequelize ORM, a promise-based Node.js ORM for MySQL. MuviNite
 
 Node.js, MySQL, Sequelize, Passport, Handlebars, Express, Materialize, Bootstrap, jQuery, OMDB API
 
-
 ![Screen Shot](public/images/eventApp.gif)
