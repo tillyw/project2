@@ -12,21 +12,21 @@ $(document).ready(function() {
         event.preventDefault();
 
         $.get("/api/user_data").then(function(data) { 
-
             var eventData = {
                 eventInput: eventInput.val().trim(),
                 movieInput: movieInput.val().trim(),
                 dateInput: dateInput.val().trim(),
                 locationInput: locationInput.val().trim(),
                 descriptionInput: descriptionInput.val().trim(),
-                user: data.username
+                user: data.username,
+                fullname: data.firstname + " " + data.lastname
             };
 
             if (!eventData.eventInput || !eventData.movieInput ||!eventData.dateInput || !eventData.locationInput || !eventData.descriptionInput) {
                 return;
             }
             // If we have an all field filled out, run the newEvent function
-                newEvent(eventData.eventInput, eventData.movieInput, eventData.dateInput, eventData.locationInput, eventData.descriptionInput, eventData.user);
+                newEvent(eventData.eventInput, eventData.movieInput, eventData.dateInput, eventData.locationInput, eventData.descriptionInput, eventData.user, eventData.fullname);
                 eventInput.val("");
                 movieInput.val("");
                 dateInput.val("");
@@ -36,14 +36,15 @@ $(document).ready(function() {
 
             // Does a post to the signup route. If successful, we are redirected to the members page
             // Otherwise we log any errors
-            function newEvent(eventInput, movieInput, dateInput, locationInput, descriptionInput, user) {
+            function newEvent(eventInput, movieInput, dateInput, locationInput, descriptionInput, user, fullname) {
                 $.post("/api/newevent", {
                     eventInput: eventInput,
                     movieInput: movieInput,
                     dateInput: dateInput,
                     locationInput: locationInput,
                     descriptionInput: descriptionInput,
-                    user: user
+                    user: user,
+                    fullname: fullname
                 }).then(function(data) {
                     window.location.href="/members"; 
                 });

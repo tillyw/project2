@@ -13,20 +13,23 @@
                     </div>
                     </div>
                     <div class="card-tabs">
-                        <ul class="tabs tabs-fixed-width">
+                        {{!-- <ul class="tabs tabs-fixed-width">
                             <li class="tab"><a href="#test10">Movie Title</a></li>
                             <li class="tab"><a class="active" href="#test4">Date and Time</a></li>
                             <li class="tab"><a href="#test5">Location</a></li>
                             <li class="tab"><a href="#test6">Description</a></li>
                             <li class="tab"><a href="#test7">Host</a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                     <div class="card-content grey lighten-4">
-                        <div id="test10"> {{event.movie}} </div> 
-                        <div id="test4"> {{event.dateAndTime}}</div>
-                        <div id="test5"> {{event.location}}</div>
-                        <div id="test6"> {{event.description}}</div>
-                        <div id="test7"> {{event.user}}</div>
+                        <div id="test7"><b>HOST:</b>   {{event.fullname}}</div>
+                        <div id="test4"><b>DATE AND TIME:</b> {{event.dateAndTime}}</div>
+                        <div id="test5">LOCATION: {{event.location}}</div>
+                        <div id="test6">EVENT DESCRIPTION: {{event.description}}</div>
+                        <div id="test10">MOVIE TITLE: {{event.movie}} </div> 
+                        <div id="test8">MOVIE YEAR: {{event.movieDetails.Year}}</div>
+                        <div id="test9">MOVIE PLOT:  {{event.movieDetails.Plot}}</div>
+           
                     </div>
                 </div>
 
@@ -74,5 +77,6 @@
     $(document).ready(function() {
         $('.tabs').tabs();
         $('.collapsible').collapsible()
+       console.log(event.movieDetails);
     });
 </script>
