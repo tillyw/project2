@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     Event.hasMany(models.Invitee, {
       onDelete: "cascade"
     });
-  };
+  }
 
   return Event;
 
