@@ -46,12 +46,8 @@ $(document).ready(function() {
                     dateInput: dateInput,
                     locationInput: locationInput,
                     descriptionInput: descriptionInput,
-<<<<<<< HEAD
                     user: user,
                     fullname: fullname
-                }).then(function(data) {
-=======
-                    user: user
                 }).then(function(event) {
                     var invitedArray = invitedInput.val();
 
@@ -81,7 +77,6 @@ $(document).ready(function() {
                             };
                         });
                     };
->>>>>>> 448163456f326ad4485d5ef8296670c01cdfe009
                     window.location.href="/members"; 
                 });    
             };

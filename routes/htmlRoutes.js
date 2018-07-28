@@ -4,7 +4,7 @@ module.exports = function (app) {
 
   // Load example page and pass in an example by id
   app.get("/event/:id", function (req, res) {
-    db.Event.findOne({ where: { id: req.params.id }, include: [db.Comment] }).then(function (dbEvent) {
+    db.Event.findOne({ where: { id: req.params.id }, include: [db.Comment, db.Invitee] }).then(function (dbEvent) {
       console.log(dbEvent.movie);
       request(
         {
@@ -16,18 +16,12 @@ module.exports = function (app) {
           dbEvent.movieDetails = JSON.parse(body);
           res.render("event", {
             event: dbEvent,
-            comment: dbEvent.Comments
+            comment: dbEvent.Comments,
+            invitee: dbEvent.Invitees
           });
         }
       );
       
-  app.get("/event/:id", function(req, res) {
-    db.Event.findOne({ where: { id: req.params.id }, include: [db.Comment, db.Invitee] }).then(function(dbEvent) {
-      res.render("event", {
-        event: dbEvent,
-        comment: dbEvent.Comments,
-        invitee: dbEvent.Invitees
-      });
     });
   });
 
@@ -40,11 +34,6 @@ module.exports = function (app) {
   //   });
   // });
 
-<<<<<<< HEAD
-  // load newEvent page
-  app.get("/newevent", function (req, res) {
-    res.render("newevent");
-=======
 // load newEvent page
 app.get("/newevent", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
@@ -52,7 +41,6 @@ app.get("/newevent", function(req, res) {
         users: dbUser
       });
     });
->>>>>>> 448163456f326ad4485d5ef8296670c01cdfe009
   });
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
